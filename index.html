@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+</head>
+
+<body>
+  <style>
+    body{
+      box-sizing: border-box;
+      margin: 0;
+    }
+    .container{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(10, 153, 242);
+      border-radius: 100px;
+      width:1000px;
+      height: 800px;
+      margin-top: 50px;
+    }
+    .game{
+      color: black;
+    }
+  </style>
+  <nav class="black">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Chat Bot</a>
+</nav>
+<main>
+  <p>Please keep inputs stupidly simple. This will not write code for you. At best it will complete a simple sentence for you. Responses are limited to a maximum of 100 words</p>
+<div class="container">
+    <div class="input">
+      <input id="prompt" placeholder="type here"></input>
+    </div>
+    <button class="waves-effect waves-light black btn" id="submit-button" onclick="getCompletion()">GO</button>
+    <h4>response</h4>
+  <div class="output">
+  <div id="output"></div>
+</div>
+</div>
+</main>
+  <script>
+    function getCompletion() {
+        var prompt = document.getElementById("prompt").value;
+        var endpoint = "https://api.openai.com/v1/engines/davinci/completions";
+        var apiKey = "your API key";
+
+        var data = {
+            prompt: prompt,
+            max_tokens: 100,
+            temperature: 0.5
+        };
+
+        var config = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`
+            },
+            body: JSON.stringify(data)
+        };
+
+        fetch(endpoint, config)
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (json) {
+              console.log(json)
+                var output = json.choices[0].text;
+                document.getElementById("output").innerHTML = output;
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+  </script>
+</body>
+</html>
