@@ -1,5 +1,5 @@
 # chat-bot
-This is something resembling a chat bot. Although it may anser some simple questions that you ask it, it functions better as a sentence completion tool. It uses OpenAI Davinci API. It also requires your actual API key to function. Increase the tokens count to receive longer responses. It is currently set to 100.
+This is a chat bot that uses the Open AI gpt-3.5-turbo model, better known as the model for ChatGPT. This is a single page application and requires you enter your own api key to function. It may be useful for times when ChatGPT is having server errors. This does not log previous questions and answers but you are free to add that feature if you want it.
 
 # screenshot
-![Screenshot 2023-01-20 at 11 08 18 PM](https://user-images.githubusercontent.com/67513942/213844750-5d3bf7a1-4e3a-4396-8fce-242e6cca8c98.png)
+<img width="755" alt="Screenshot 2023-03-28 at 11 06 54 PM" src="https://user-images.githubusercontent.com/67513942/228424352-154f0837-b5b1-413e-b9a9-642214d4a3ed.png">
